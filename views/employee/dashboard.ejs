@@ -1,0 +1,19 @@
+<%- include('../partials/header') %>
+<div class="page-wrapper">
+  <div class="container-fluid">
+    <h2 class="text-black mt-4">👷 Employee Dashboard</h2>
+    <p class="text-muted">Welcome, <%= user.name %> (<%= user.role %>)</p>
+
+    <div class="card mt-4">
+      <div class="card-body">
+        <h4>My Profile</h4>
+        <ul class="list-group">
+          <li class="list-group-item">Name: <%= user.name %></li>
+          <li class="list-group-item">Email: <%= user.email %></li>
+          <li class="list-group-item">Role: <%= user.role %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include('../partials/footer') %>

@@ -1,0 +1,37 @@
+<%- include('../partials/header') %>
+
+<div class="page-wrapper">
+  <div class="container-fluid">
+    <h2 class="text-white mt-4">✏️ Edit User</h2>
+
+    <div class="card mt-4">
+      <div class="card-body">
+        <form action="/admin/update/<%= user._id %>" method="POST">
+          <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" name="name" value="<%= user.name %>" class="form-control" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" name="email" value="<%= user.email %>" class="form-control" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Role</label>
+            <select name="role" class="form-select" required>
+              <option value="Admin" <%= user.role === "Admin" ? "selected" : "" %>>Admin</option>
+              <option value="Manager" <%= user.role === "Manager" ? "selected" : "" %>>Manager</option>
+              <option value="Employee" <%= user.role === "Employee" ? "selected" : "" %>>Employee</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary">💾 Save Changes</button>
+          <a href="/admin/dashboard" class="btn btn-secondary">Cancel</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>

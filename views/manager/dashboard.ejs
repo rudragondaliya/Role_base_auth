@@ -1,0 +1,50 @@
+<%- include('../partials/header') %>
+<div class="page-wrapper">
+  <div class="container-fluid">
+    <h2 class="text-black mt-4">👨‍💼 Manager Dashboard</h2>
+    <p class="text-muted">Welcome, <%= user.name %> (<%= user.role %>)</p>
+
+    <div class="card mt-4">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center">
+          <h4>Manage Employees</h4>
+          <a href="/manager/create" class="btn btn-success mb-3">➕ Add Employee</a>
+        </div>
+
+        <table class="table table-striped text-black align-middle">
+          <thead class="table-dark">
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if (users && users.length) { %>
+              <% users
+                .filter(u => u.role === 'employee')
+                .forEach(u => { %>
+                <tr>
+                  <td><%= u.name %></td>
+                  <td><%= u.email %></td>
+                  <td><%= u.role %></td>
+                  <td>
+                    <a href="/manager/edit/<%= u._id %>" class="btn btn-warning btn-sm me-2">Edit</a>
+                    <a href="/manager/delete/<%= u._id %>" class="btn btn-danger btn-sm me-2"> Delete</a>
+                    
+                  </td>
+                </tr>
+              <% }) %>
+            <% } else { %>
+              <tr>
+                <td colspan="4" class="text-center text-muted">No employees yet</td>
+              </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include('../partials/footer') %>

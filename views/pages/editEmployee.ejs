@@ -1,0 +1,17 @@
+<%- include('../partials/header') %>
+<div class="container mt-5">
+  <h3 class="text-white">Edit Employee</h3>
+  <form method="POST" action="/manager/update/<%= userData._id %>">
+    <div class="mb-3">
+      <label class="form-label text-white">Name</label>
+      <input type="text" class="form-control" name="name" value="<%= userData.name %>" required />
+    </div>
+    <div class="mb-3">
+      <label class="form-label text-white">Email</label>
+      <input type="email" class="form-control" name="email" value="<%= userData.email %>" required />
+    </div>
+    <button class="btn btn-success">Update</button>
+    <a href="/manager/dashboard" class="btn btn-secondary">Cancel</a>
+  </form>
+</div>
+<%- include('../partials/footer') %>
